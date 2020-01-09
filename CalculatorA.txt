@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class CalculatorA{
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    String c;
+    System.out.println("Welcome to Calculator");
+    do{
+     try{       
+       System.out.println("Press 1 for Addition \n 2 for Subtraction \n 3 for Multiplication \n 4 for Division \n 5 for Exit");
+       int ch=sc.nextInt();      
+       System.out.println("Enter first numbers");
+       int number1=sc.nextInt();
+       System.out.println("Enter second numbers");
+       int number2=sc.nextInt(); 
+       int result;
+              
+       switch(ch){
+          case 1 : result=number1+number2;
+                   System.out.println("Addition : "+result);
+                   break;
+          case 2 : result=number1-number2;
+                   System.out.println("Subtraction : "+result);
+                   break;
+          case 3 : result=number1*number2;
+                   System.out.println("Multiplication : "+result);
+                   break;
+          case 4 : try{
+                      result=number1/number2;
+                      System.out.println("Division : "+result);
+                   }
+                   catch(ArithmeticException e){
+                       System.out.println("Warning: Input zero is not allowed for this function"); 
+                   }
+                   break;
+          case 5 : System.exit(0);
+                   break;
+          default: System.out.println("No such option available");  
+         }
+      }
+      catch(Exception e){
+        System.out.println("Warning: Strings are not allowed"); 
+      }
+
+       System.out.println("Do you want to continue ? Press y ");
+       c=sc.next();
+      }while(c.equals("y")||c.equals("Y"));
+  }
+}       
